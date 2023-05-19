@@ -4,8 +4,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
  </head>
  <body>
-    <h1>Hola amigos, Ti-NongDan</h1>
+   <h1>Hola amigos, Ti-NongDan</h1>
+    <div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a class="active" href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </div>
+    <div>
+      <div class="w3-container">
+         <h2>USER LIST</h2> 
+         <table class="w3-table-all w3-hoverable">
+           <thead>
+             <tr class="w3-light-grey">
+               <th>ID</th>
+               <th>First Name</th>
+               <th>Last Name</th>
+               <th>Actions</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <% for(let i=0; i < userData.length; i++) { %>
+                  <tr>
+                    <td><%= userData[i].ID %></td>
+                    <td><%= userData[i].FirstName %></td>
+                    <td><%= userData[i].LastName %></td>
+                    <td>
+                        <button type="button"><a href="/detail/user/<%= userData[i].ID %>">Detail</a></button>
+                        <button type="button"><a>Edit</a></button>
+                        <button type="button"><a>Delete</a></button>
+                    </td>
+                  </tr>
+               <% } %>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+    </div>
  </body>
  </html>

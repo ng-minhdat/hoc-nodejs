@@ -3,17 +3,15 @@ console.log("This is my first file to learn Node.js")
 // const express = require('express')
 import express from 'express';
 import configViewEngine from './configs/viewEngine';
-const app = express()
-const port = 3000
+import initWebRoute from './route/web';
+import connection from './configs/connectDB';
+require('dotenv').config();
 
-configViewEngine(app)
+const app = express();
+const port = process.env.PORT || 8080;
 
-app.get('/', (req, res) => {
-  res.render('index.ejs')
-})
-app.get('/surprise', (req, res) => {
-    res.send('I am the man behind this page!')
-})
+configViewEngine(app);
+initWebRoute(app);
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`)
